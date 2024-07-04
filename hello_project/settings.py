@@ -17,6 +17,20 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 
+from django.core.wsgi import get_wsgi_application
+
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'weather_project.settings')
+
+application = get_wsgi_application()
+
+ALLOWED_HOSTS = ['.vercel.app', '.now.sh']
+
+# Ensure DEBUG is set to False in production
+DEBUG = False
+
+# Add your WeatherAPI key
+WEATHER_API_KEY = os.getenv('WEATHER_API_KEY')
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -28,7 +42,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-n2!wo3v1t=fkx&)i2a+kvp1bi$wc*79^+*!t@lkmhtgb7#qq$+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+#DEBUG = True
 
 ALLOWED_HOSTS = []
 

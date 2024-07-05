@@ -1,4 +1,4 @@
-from django.shortcuts import render
+#from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
@@ -22,7 +22,7 @@ class HelloView(APIView):
         weather_url = f"https://api.openweathermap.org/data/2.5/weather?q={location}&appid={api_key}"
         weather_response = requests.get(weather_url)
         weather_data = weather_response.json()
-        temperature = weather_data['current']['temp_c']
+        temperature = weather_data['main']['temp']
 
         greeting = f"Hello, {visitor_name}!, the temperature is {temperature} degrees Celsius in {location}"
 

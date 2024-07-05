@@ -1,2 +1,3 @@
 # api key configuration
 API_KEY = '89ab7b422c5a26d66ad4816beea4d228'
+['current']['temp_c']

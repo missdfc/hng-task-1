@@ -16,10 +16,9 @@ class HelloView(APIView):
             client_ip = "127.0.0.1"  # Default IP if not found
 
         
-           
+        WEATHER_API_KEY = 'd2cb923597d40a179f2135d954e71acd'   
         location = "Osun"  
-        api_key = os.getenv('WEATHER_API_KEY')
-        weather_url = f"https://api.openweathermap.org/data/2.5/weather?q={location}&appid={api_key}"
+        weather_url = f"https://api.openweathermap.org/data/2.5/weather?q={location}&appid={WEATHER_API_KEY}"
         weather_response = requests.get(weather_url)
         weather_data = weather_response.json()
         temperature = weather_data['main']['temp']
